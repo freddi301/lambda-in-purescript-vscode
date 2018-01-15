@@ -1,0 +1,54 @@
+{
+    "name": "lambda-in-purescript-vscode",
+    "displayName": "lambda-in-purescript-vscode",
+    "description": "",
+    "version": "0.0.1",
+    "publisher": "frederik",
+    "engines": {
+        "vscode": "^1.19.0"
+    },
+    "categories": [
+        "Other"
+    ],
+    "activationEvents": [
+        "onLanguage:lambda-in-purescript"
+    ],
+    "main": "./out/extension",
+    "contributes": {
+        "languages": [
+            {
+                "id": "lambda-in-purescript",
+                "aliases": [
+                    "lambda-in-purescript"
+                ],
+                "extensions": [
+                    ".lip"
+                ],
+                "configuration": "./language-configuration.json"
+            }
+        ],
+        "grammars": [
+            {
+                "language": "lambda-in-purescript",
+                "scopeName": "source.lambda-in-purescript",
+                "path": "./syntaxes/lambda-in-purescript.tmLanguage"
+            }
+        ]
+    },
+    "scripts": {
+        "vscode:prepublish": "npm run compile",
+        "compile": "tsc -p ./",
+        "watch": "tsc -watch -p ./",
+        "postinstall": "node ./node_modules/vscode/bin/install",
+        "test": "npm run compile && node ./node_modules/vscode/bin/test"
+    },
+    "devDependencies": {
+        "typescript": "^2.6.1",
+        "vscode": "^1.1.6",
+        "@types/node": "^7.0.43",
+        "@types/mocha": "^2.2.42"
+    },
+    "dependencies": {
+        "lambda-in-purescript": "^0.1.1"
+    }
+}
